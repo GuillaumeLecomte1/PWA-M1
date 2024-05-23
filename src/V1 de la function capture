@@ -1,0 +1,29 @@
+  // const capture = () => {
+  //   const imageSrc = webcamRef.current.getScreenshot();
+  //   // Enregistrer l'image capturée dans le navigateur ou l'envoyer à un backend
+  //   if (imageSrc) {
+  //     // Créer un élément <a> temporaire pour le téléchargement
+  //     const downloadLink = document.createElement('a');
+  //     // Définir l'attribut href avec les données de l'image
+  //     downloadLink.href = imageSrc;
+  //     // Définir l'attribut de téléchargement avec un nom de fichier
+  //     downloadLink.download = 'webcam_capture.jpg';
+  //     // Ajouter l'élément <a> à la page
+  //     document.body.appendChild(downloadLink);
+  //     // Cliquer sur le lien pour déclencher le téléchargement
+  //     downloadLink.click();
+  //     // Supprimer l'élément <a> de la page
+  //     document.body.removeChild(downloadLink);
+
+  //     // Code Notification
+  //     if ('Notification' in window && Notification.permission === 'granted') {
+  //       new Notification('Photo Capturée', {
+  //         body: 'Votre photo a été capturée avec succès!',
+  //         icon: imageSrc,
+  //       });
+  //     }
+  //   }
+  // };
+
+
+  https://formation.anjousoft.fr/Vuejs/TP_fullstack.php

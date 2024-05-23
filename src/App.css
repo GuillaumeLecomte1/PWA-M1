@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+hr {
+  color: #ae0bd3;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar {
+  width: 100%;
+  background-color: #333; /* Couleur de fond */
+  overflow: hidden; /* Assure que le contenu de la navbar ne dépasse pas */
+}
+
+.navbar-nav {
+  list-style-type: none; /* Retire les puces */
+  padding: 0; /* Retire les marges intérieures */
+  margin: 0; /* Retire les marges extérieures */
+  display: flex; /* Utilise Flexbox pour aligner les éléments de la liste horizontalement */
+  justify-content: flex-start; /* Alignement des éléments au début de la navbar */
+}
+
+.nav-item {
+  padding: 14px 20px; /* Espacement autour des éléments */
+  color: white; /* Couleur du texte */
+  cursor: pointer; /* Change le curseur en main au survol */
+}
+
+.nav-item:hover {
+  background-color: #555; /* Couleur de fond au survol */
+}
+
+.offline-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.offline-icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 94%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 4px;
+  background-color: red; /* Couleur du slash, ajustez selon votre design */
+  height: 100%;
+}
