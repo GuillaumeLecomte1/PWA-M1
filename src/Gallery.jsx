@@ -6,7 +6,30 @@ const Gallery = () => {
   useEffect(() => {
     const storedImages = JSON.parse(localStorage.getItem('capturedPhotos')) || [];
     setImages(storedImages);
+
+    const handleOnline = () => {
+      syncPhotos();
+    };
+
+    window.addEventListener('online', handleOnline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+    };
   }, []);
+
+  const syncPhotos = () => {
+    const storedImages = JSON.parse(localStorage.getItem('capturedPhotos')) || [];
+    const updatedImages = storedImages.map(img => {
+      if (!img.synced && navigator.onLine) {
+        return { ...img, synced: true };
+      }
+      return img;
+    });
+
+    localStorage.setItem('capturedPhotos', JSON.stringify(updatedImages));
+    setImages(updatedImages);
+  };
 
   return (
     <div className="gallery">
@@ -16,6 +39,7 @@ const Gallery = () => {
           <p>{img.synced ? "Synchronisée" : "Non synchronisée"}</p>
         </div>
       ))}
+      <button onClick={syncPhotos}>Synchroniser les photos</button>
     </div>
   );
 };

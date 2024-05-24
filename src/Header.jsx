@@ -39,7 +39,7 @@ const Header = ({ position, isOnline, batteryLevel }) => {
         </div>
       )}
 <br />
-      <button onClick={() => window.location.href = 'tel:+1234567890'}>Appeler</button>
+      <button onClick={() => window.location.href = 'tel:+0637220574'}>Appeler</button>
       <a
         className="App-link"
         href="https://reactjs.org"

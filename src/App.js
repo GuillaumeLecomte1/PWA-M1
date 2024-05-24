@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import GeolocationPage from './GeolocationPage'; // Un nouveau composant pour la page de géolocalisation
 import CameraPage from './CameraPage'; // Un nouveau composant pour la page de la caméra
-import HomePage from './HomePage'; // Page d'accueil
+import HomePage2 from './HomePage2'; // Page d'accueil
 import NotificationPage from './NotificationPage'; // Page de notification
 import TelephonePage from './TelephonePage';
 import OtpPage from './OtpPage';
@@ -78,7 +78,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage2 />} />
           <Route path="/geolocalisation" element={<GeolocationPage />} />
           <Route path="/camera" element={<CameraPage />} />
           <Route path="/telephone" element={<TelephonePage />} /> 

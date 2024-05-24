@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Navbar from './Navbar';
 import Webcam from 'react-webcam';
 import Gallery from './Gallery';
 import './CameraPage.css'; // Assurez-vous de créer ce fichier CSS
@@ -33,7 +34,9 @@ const CameraPage = () => {
         <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />
       </div>
       <button className="capture-button" onClick={capture}>Capture Photo</button>
-      <Gallery />
+      <div className="gallery-container">
+        <Gallery />
+      </div>
     </div>
   );
 };
