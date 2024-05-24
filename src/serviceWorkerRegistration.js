@@ -51,6 +51,38 @@ export function register(config) {
     });
   }
 }
+self.addEventListener('push', function(event) {
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || 'Notification';
+  const options = {
+    body: data.body || 'Vous avez une nouvelle notification.',
+    icon: data.icon || '/logo192.png',
+    badge: data.badge || '/badge-icon.png',
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, options)
+  );
+});
+
+self.addEventListener('notificationclick', function(event) {
+  event.notification.close();
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function(clientList) {
+      if (clientList.length > 0) {
+        let client = clientList[0];
+        for (let i = 0; i < clientList.length; i++) {
+          if (clientList[i].focused) {
+            client = clientList[i];
+          }
+        }
+        return client.focus();
+      }
+      return clients.openWindow('/');
+    })
+  );
+});
+
 
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
