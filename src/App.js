@@ -6,6 +6,7 @@ import CameraPage from './CameraPage'; // Un nouveau composant pour la page de l
 import HomePage from './HomePage'; // Page d'accueil
 import NotificationPage from './NotificationPage'; // Page de notification
 import TelephonePage from './TelephonePage';
+import OtpPage from './OtpPage';
 import './App.css';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
@@ -82,6 +83,8 @@ function App() {
           <Route path="/camera" element={<CameraPage />} />
           <Route path="/telephone" element={<TelephonePage />} /> 
           <Route path="/notification" element={<NotificationPage />} /> 
+          <Route path="/sms" element={<OtpPage />} /> 
+
         </Routes>
       </Router>
     </div>

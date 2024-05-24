@@ -11,6 +11,8 @@ const Navbar = () => {
         <li className="nav-item"><Link to="/telephone">Téléphone</Link></li>
 
         <li className="nav-item"><Link to="/notification">Notification</Link></li>
+        <li className="nav-item"><Link to="/sms">SMS</Link></li>
+
       </ul>
     </nav>
   );
