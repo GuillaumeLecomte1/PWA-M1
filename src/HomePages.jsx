@@ -6,6 +6,7 @@ const HomePages = () => {
   const [position, setPosition] = useState(null);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [batteryLevel, setBatteryLevel] = useState(null);
+  const [isCharging, setIsCharging] = useState(null);
 
   useEffect(() => {
     const getPosition = () => {
@@ -32,15 +33,19 @@ const HomePages = () => {
     if ('getBattery' in navigator) {
       navigator.getBattery().then((battery) => {
         setBatteryLevel(battery.level * 100);
+        setIsCharging(battery.charging);
 
-        const updateBatteryLevel = () => {
+        const updateBatteryStatus = () => {
           setBatteryLevel(battery.level * 100);
+          setIsCharging(battery.charging);
         };
 
-        battery.addEventListener('levelchange', updateBatteryLevel);
+        battery.addEventListener('levelchange', updateBatteryStatus);
+        battery.addEventListener('chargingchange', updateBatteryStatus);
 
         return () => {
-          battery.removeEventListener('levelchange', updateBatteryLevel);
+          battery.removeEventListener('levelchange', updateBatteryStatus);
+          battery.removeEventListener('chargingchange', updateBatteryStatus);
         };
       });
     }
@@ -65,6 +70,7 @@ const HomePages = () => {
       position={position}
       isOnline={isOnline}
       batteryLevel={batteryLevel}
+      isCharging={isCharging}
     />
   );
 };

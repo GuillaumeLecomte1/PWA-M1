@@ -2,11 +2,11 @@ import React from 'react';
 import { CCallout } from '@coreui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWifi } from '@fortawesome/free-solid-svg-icons';
+import BatteryStatus from './BatteryStatus';
 import logo from './logo.svg';
 import './layout.css';
 
-
-const Header = ({ position, isOnline, batteryLevel }) => {
+const Header = ({ position, isOnline, batteryLevel, isCharging }) => {
   return (
     <header className="App-header">
       <h1>Test de PWA</h1>
@@ -32,13 +32,11 @@ const Header = ({ position, isOnline, batteryLevel }) => {
       )}
       <br />
 
-
       {batteryLevel !== null && (
-        <div className="battery-status">
-          <p>Niveau de batterie : {batteryLevel}%</p>
-        </div>
+        <BatteryStatus batteryLevel={batteryLevel} isCharging={isCharging} />
       )}
-<br />
+      <br />
+
       <button onClick={() => window.location.href = 'tel:+0637220574'}>Appeler</button>
       <a
         className="App-link"
