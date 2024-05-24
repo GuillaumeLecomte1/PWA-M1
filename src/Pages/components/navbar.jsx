@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import GeolocationPage from './GeolocationPage';
-import HomePage2 from './HomePage2'; // Supposez que vous ayez un composant pour la page d'accueil
+// import HomePage2 from './HomePage2'; // Supposez que vous ayez un composant pour la page d'accueil
 import './App.css';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         {/* Définition des routes pour chaque page */}
         <Routes>
           <Route path="/geolocalisation" element={<GeolocationPage />} />
-          <Route path="/" element={<HomePage2 />} />
+          {/* <Route path="/" element={<HomePage2 />} /> */}
         </Routes>
       </div>
     </Router>
