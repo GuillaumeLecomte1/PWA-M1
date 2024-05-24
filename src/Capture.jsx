@@ -1,11 +1,8 @@
 import React, { useRef } from 'react';
 import Webcam from 'react-webcam';
-import Gallery from './Gallery';
-import './CameraPage.css'; // Assurez-vous de créer ce fichier CSS
+import './Capture.css'; // Assurez-vous de créer ce fichier CSS
 
-const CameraPage = () => {
-  const webcamRef = useRef(null);
-
+const Capture = ({ webcamRef }) => {
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     if (imageSrc) {
@@ -27,15 +24,13 @@ const CameraPage = () => {
   };
 
   return (
-    <div className="camera-page-container">
-      <h2>Module Camera</h2>
+    <div className="capture-container">
       <div className="webcam-wrapper">
         <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />
       </div>
       <button className="capture-button" onClick={capture}>Capture Photo</button>
-      <Gallery />
     </div>
   );
 };
 
-export default CameraPage;
+export default Capture;
