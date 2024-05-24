@@ -9,8 +9,11 @@ const TelephonePage = () => {
   };
 
   const handleCall = () => {
-    alert(`Appel en cours vers ${number}`);
-    setNumber('');
+    if (number.length > 0) {
+      window.location.href = `tel:${number}`;
+    } else {
+      alert('Veuillez entrer un numéro de téléphone valide.');
+    }
   };
 
   const handleHangUp = () => {
