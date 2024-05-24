@@ -1,0 +1,28 @@
+.battery-status {
+    display: flex;
+    align-items: center;
+  }
+  
+  .battery-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .battery-icon.low {
+    background-color: red;
+  }
+  
+  .battery-icon.medium {
+    background-color: orange;
+  }
+  
+  .battery-icon.high {
+    background-color: green;
+  }
+  
+  .charging {
+    margin-left: 8px;
+    color: green;
+  }
+  
