@@ -72,7 +72,6 @@ self.addEventListener('fetch', function(event) {
 });
 
 
-
 // Activation du Service Worker
 self.addEventListener('activate', (event) => {
     const cacheWhitelist = [];
@@ -90,6 +89,28 @@ self.addEventListener('activate', (event) => {
         })
     );
 });
+
+self.addEventListener('notificationclick', function(event) {
+    event.notification.close();
+    event.waitUntil(
+        clients.openWindow(event.notification.data.url)
+    );
+});
+
+self.addEventListener('push', function(event) {
+    const options = {
+        body: event.data.text(),
+        icon: 'images/icon.png',
+        badge: 'images/badge.png',
+        data: {
+            url: 'https://pwa-m1.vercel.app/notification'
+        }
+    };
+    event.waitUntil(
+        self.registration.showNotification('Notification Title', options)
+    );
+});
+
 
 
 // Set up App Shell-style routing, so that all navigation requests
