@@ -1,4 +1,5 @@
 /* eslint-disable no-restricted-globals */
+/* global clients */
 
 // This service worker can be customized!
 // See https://developers.google.com/web/tools/workbox/modules
@@ -111,8 +112,6 @@ self.addEventListener('push', function(event) {
     );
 });
 
-
-
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
@@ -158,7 +157,6 @@ registerRoute(
       ],
   })
 );
-
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
